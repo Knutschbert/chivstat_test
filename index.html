@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeepStats for Chivalry II</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+    <!-- <div class="bg-image d-flex justify-content-center align-items-center" style="
+        background-image: url('https://lh3.googleusercontent.com/drive-viewer/AFGJ81qr_sriGUVOPxijYDaqCYF0BSl0RfVXnL1rfnmQhV_4Lx5D9OUgKhYaf7juup1SiaCByafjSgsxpxdNkw81fdS3RwRMjw');
+        height: 100vh;
+        "></div> -->
+    <script src="entries_us.js"></script>
+    <script src="deepstats.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=David+Libre:wght@700&family=Volkhov:wght@700&display=swap" rel="stylesheet">
+    <style>
+         body {
+            background-image: url("https://lh3.googleusercontent.com/drive-viewer/AFGJ81qr_sriGUVOPxijYDaqCYF0BSl0RfVXnL1rfnmQhV_4Lx5D9OUgKhYaf7juup1SiaCByafjSgsxpxdNkw81fdS3RwRMjw");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            position: center;
+            background-size: cover;
+            background-position: 25% 0;
+        }
+        h1 {
+            color: bisque;
+            text-shadow: 5px 5px 4px #000000ca;
+            font-family: 'Volkhov', serif;
+        }
+        .card-header {
+            background-color: rgba(184, 184, 184, 0.065);
+            border-radius: 1rem;
+        }
+        .c_card_base {
+            color: white;
+            border-radius: 1rem;
+            background-color: rgba(0, 0, 0, 0.588);
+            
+            /* background-image: linear-gradient(315deg, #17171c83 50%, #2c2b2da1 74%); */
+            background-image: linear-gradient(315deg, #17171c3f 30%, #2c2b2d4d 54%);
+            /* background-color: #817a7a; */
+            /* opacity: 0.95;
+            background-image: radial-gradient(circle at center center, #6f71a0, #817a7a), repeating-radial-gradient(circle at center center, #6f71a0, #6f71a0, 10px, transparent 20px, transparent 10px);
+            background-blend-mode: multiply; */
+            
+            /* background-image: url('https://lh3.googleusercontent.com/drive-viewer/AFGJ81qr_sriGUVOPxijYDaqCYF0BSl0RfVXnL1rfnmQhV_4Lx5D9OUgKhYaf7juup1SiaCByafjSgsxpxdNkw81fdS3RwRMjw'); */
+        }
+        .card-img-top {
+            /* width: 100%; */
+            bottom: 0;
+            width: 100%;
+            height: 10vw;
+            
+            object-fit: cover;
+            
+            /* height: 15vw; */
+        }
+        .c_card_data {
+            border-radius: 1rem;
+            text-shadow: 2px 2px 10px #000000;
+            box-shadow: 0px 0px 4px #fffefeca;
+            color: gold;
+            /* background-color: rgba(123, 123, 123, 0.533); */
+            background-size: cover;
+            /* background-blend-mode: multiply; */
+            /* background-image: url('https://lh3.googleusercontent.com/drive-viewer/AFGJ81q7k0u9DZ90aZPoVYrPzsS5HlkN5h-14iWjmwBPrqSAF0n0haNQn64jesaMS6EihpupHq_Z7RSiBgY8_9opIxr9vX9nhQ=s1600'); */
+            /* background-image: url('https://lh3.googleusercontent.com/drive-viewer/AFGJ81oUd_CjwXzpRQYZlDflVFbkFyPeQUVt4o0ufFzL15opLhmlzTtuEFSpqGns9zlc1XrzMAKRtQppHXHcWIvHd4SDHXPPeQ'); */
+            
+            background-image: linear-gradient(315deg, #868687c4 30%, #161517a4 54%);
+            
+        }
+        .card-img-overlay {
+            color: gold;
+            text-shadow: 4px 4px 10px #000000;
+            font-size: 48px;
+            font-family: 'Volkhov', serif;
+
+        }
+        .c_title_text {
+            text-shadow: 1px 1px 4px #000000ca;
+            font-size: 48px;
+            font-family: 'David Libre', serif;
+        }
+        .c_number_text {
+            font-size: x-large;
+            font-family: 'Volkhov', serif;
+        }
+        .accordion-header {
+            font-size: xx-large;
+            font-family: 'Volkhov', serif;
+        }
+        .accordion-button:not(.collapsed) {
+            font-size: xx-large;
+            background-color: rgba(255, 217, 0, 0.293);
+            color: whitesmoke;
+            /* background-image: url('https://lh3.googleusercontent.com/drive-viewer/AFGJ81qr_sriGUVOPxijYDaqCYF0BSl0RfVXnL1rfnmQhV_4Lx5D9OUgKhYaf7juup1SiaCByafjSgsxpxdNkw81fdS3RwRMjw'); */
+        }
+        /* .accordion-item:not(.collapsed) {
+            margin-top: 5rem;
+            margin-bottom: 5rem;
+        } */
+        /* .accordion-item:first-child:first-child.collapsed {
+            margin-top: 5rem;
+            margin-bottom: 5rem;
+        } */
+        /* .accordion-item:last-child:first-child.collapsed {
+            margin-top: 0;
+            margin-bottom: 0;
+        } */
+        .accordion-button.collapsed {
+            font-size: large;
+            background-color: gold;
+            color: black;
+            /* background-image: url('https://lh3.googleusercontent.com/drive-viewer/AFGJ81qr_sriGUVOPxijYDaqCYF0BSl0RfVXnL1rfnmQhV_4Lx5D9OUgKhYaf7juup1SiaCByafjSgsxpxdNkw81fdS3RwRMjw'); */
+        }
+        .accordion-item:not(.collapsed) {
+            color: #0c63e4;
+            background-color: rgba(128, 128, 128, 0.316);
+            /* background-image: url('https://lh3.googleusercontent.com/drive-viewer/AFGJ81of3vex6UQLfOKXM2RI3KlOD0ojUcFbV9WzFPXpMayRqiz9LaOC_b3LMT80DQL54DB9SH9ugKyieMEuM0SE3aAZRu03eQ'); */
+        }
+    </style>
+ <!-- class="bg-image"
+  style="
+    background-image: url('https://lh3.googleusercontent.com/drive-viewer/AFGJ81qr_sriGUVOPxijYDaqCYF0BSl0RfVXnL1rfnmQhV_4Lx5D9OUgKhYaf7juup1SiaCByafjSgsxpxdNkw81fdS3RwRMjw');
+    height: 100vh;
+  " -->
+        <div
+ 
+>
+    <div class="container text-center mx-auto p-4">
+        <h1>Chivalry II DeepStats</h1>
+    </div>
+    
+    
+    <div class="container" id="drop-area">
+        <div class="card ">
+            <!-- <div class="card-header">
+    
+            </div> -->
+            <div class="card-body">
+                <h5 class="card-title">Select or Drag&Drop "FlavorStats_..._3" file</h5>
+                <p class="card-text">All data is processed within your browser.</p>
+                <div class="my-3">
+                    <!-- <h5>LOCALAPPDATA%\Chivalry 2\Saved\Cloud</h5> -->
+                    <!-- <textarea class="form-control" id="exampleFormControlTextarea1" rows="1" placeholder="LOCALAPPDATA%\Chivalry 2\Saved\Cloud"></textarea> -->
+                    
+                    <!-- Default path inline like file selector, btn location? -->
+                    <!-- <form class="row g-3">
+                        <div class="col-12">
+                            <label class="visually-hidden" for="inlineFormInputGroupUsername">Username</label>
+                            <div class="input-group">
+                              <div class="input-group-text">Default Path</div>
+                              <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Username">
+                              <button onclick="copyDefaultPath()" class="btn btn-primary mb-3">Copy to clipboard</button>
+                            </div>
+                          </div>
+                    </form> -->
+                    <form class="row g-3">
+        
+                        <div class="col-auto">
+                            <label for="defaultPath" class="col-form-label">Default Path:</label>
+                        </div>
+                        <div class="col">
+                            <input id="defaultPath" class="form-control" type="text" value="%LOCALAPPDATA%\Chivalry 2\Saved\Cloud\" aria-label="Windows default path" readonly>                
+                        </div>
+                        <div class="col-auto">
+                            <button onclick="copyDefaultPath()" class="btn btn-primary mb-3">Copy to clipboard</button>
+                        </div>
+                    </form>
+                    
+        
+                    <!-- <label for="file-selector" class="form-label">Select FlavorStats_PlayerID_3 file</label> -->
+                    <input class="form-control" type="file" id="file-selector">
+                </div>
+                
+                <div class="d-grid gap-2 col-6 mx-auto">
+                    <button id="parseFileBtn" class="btn btn-warning btn-block mt-2" onclick="parseFile()">Parse File</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="container py-4">
+        <div class="accordion" id="parseAccordion"></div>
+    </div>
+
+</div>
+    <!-- Datatables -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>
